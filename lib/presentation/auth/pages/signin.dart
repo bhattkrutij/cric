@@ -2,6 +2,7 @@ import 'package:cric/common/helper/string_utils.dart';
 import 'package:cric/presentation/auth/bloc/signin_cubit.dart';
 import 'package:cric/presentation/auth/bloc/signin_state.dart';
 import 'package:cric/presentation/auth/pages/signup.dart';
+import 'package:cric/presentation/profile/pages/edit_profile_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -112,7 +113,7 @@ class SignInPage extends StatelessWidget {
       child: BlocConsumer<SignInCubit, SignInState>(
         listener: (context, state) {
           if (state is SignInSuccess) {
-            AppNavigator.pushAndRemove(context, const HomePage());
+            AppNavigator.pushAndRemove(context,  EditProfileScreen());
           } else if (state is SignInFailure) {
             DisplayMessage.errorMessage(state.error, context);
           }

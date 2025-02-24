@@ -3,3 +3,7 @@ const String  signUp = "Sign Up";
 const String  email = "Email";
 const String  password = "Password";
 const String  dontHaveAnAcc = "Don't you have account?";
+const String  editProfile = "Edit Profile";
+const String  name = "Name";
+const String  role = "Role";
+const String  birthDate = "Birth Date";

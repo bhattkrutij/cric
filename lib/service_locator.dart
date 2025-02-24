@@ -1,5 +1,6 @@
 import 'package:cric/presentation/auth/bloc/signin_cubit.dart';
 import 'package:cric/presentation/auth/bloc/signup_cubit.dart';
+import 'package:cric/presentation/profile/bloc/edit_profile_cubit.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -27,6 +28,7 @@ Future<void> setupServiceLocator() async {
   sl.registerFactory(() => ValidationCubit());
   sl.registerFactory(() => SignInCubit());
   sl.registerFactory(()=>SignUpCubit());
+  sl.registerFactory(()=>EditProfileCubit());
 
   // Services
   sl.registerSingleton<AuthService>(AuthApiServiceImpl());

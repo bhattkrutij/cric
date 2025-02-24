@@ -5,7 +5,7 @@ import 'package:cric/common/helper/string_utils.dart';
 import 'package:cric/presentation/auth/bloc/signup_cubit.dart';
 import 'package:cric/presentation/auth/bloc/signup_state.dart';
 import 'package:cric/presentation/auth/pages/signin.dart';
-import 'package:cric/presentation/profile/edit_profile_screen.dart';
+import 'package:cric/presentation/profile/pages/edit_profile_screen.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -107,7 +107,7 @@ class SignupPage extends StatelessWidget {
       child: BlocConsumer<SignUpCubit, SignUpState>(
         listener: (context, state) {
           if (state is SignUpSuccess) {
-            AppNavigator.pushAndRemove(context, const EditProfileScreen());
+            AppNavigator.pushAndRemove(context,  EditProfileScreen());
           } else if (state is SignUpFailure) {
             DisplayMessage.errorMessage(state.error, context);
           }
@@ -130,7 +130,7 @@ class SignupPage extends StatelessWidget {
               },
               child: state is SignUpLoading
                   ? const CircularProgressIndicator()
-                  : const Text(signIn, style: TextStyle(color: Colors.white),),
+                  : const Text(signUp, style: TextStyle(color: Colors.white),),
             ),
           );
         },
