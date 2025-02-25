@@ -1,4 +1,6 @@
 import 'package:cric/common/helper/keys.dart';
+import 'package:cric/data/auth/models/edit_profile_req_params.dart';
+import 'package:cric/domain/auth/usecases/edit_profile_usecase.dart';
 import 'package:dartz/dartz.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -19,7 +21,7 @@ class AuthRepositoryImpl extends AuthRepository {
     var data = await sl<AuthService>().signUp(params);
     if (data.success) {
       // Save token to SharedPreferences
-      sl<SharedPreferences>().setString(keyUser, data.data[keyToken]);
+      sl<SharedPreferences>().setString(keyToken, data.data[keyToken]);
     }
 
     return data;
@@ -30,7 +32,7 @@ class AuthRepositoryImpl extends AuthRepository {
     var data = await sl<AuthService>().signIn(params);
     if (data.success) {
       // Save token to SharedPreferences
-      sl<SharedPreferences>().setString(keyUser, data.data[keyToken]);
+      sl<SharedPreferences>().setString(keyToken, data.data[keyToken]);
     }
 
     return data;
@@ -44,6 +46,15 @@ class AuthRepositoryImpl extends AuthRepository {
     } else {
       return true;
     }
+  }
+
+  @override
+  Future<ApiResponse> editProfile(EditProfileReqParams params) async {
+    print("tttttt${params}");
+  var data = await sl<AuthService>().editProfile(params!);
+
+    return data;
+
   }
 
 

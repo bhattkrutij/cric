@@ -1,3 +1,4 @@
+import 'package:cric/domain/auth/usecases/edit_profile_usecase.dart';
 import 'package:cric/presentation/auth/bloc/signin_cubit.dart';
 import 'package:cric/presentation/auth/bloc/signup_cubit.dart';
 import 'package:cric/presentation/profile/bloc/edit_profile_cubit.dart';
@@ -38,6 +39,7 @@ Future<void> setupServiceLocator() async {
 
   // Usecases
   sl.registerSingleton<SignupUseCase>(SignupUseCase());
+  sl.registerSingleton<EditProfileUsecase>(EditProfileUsecase());
   sl.registerSingleton<SigninUseCase>(SigninUseCase());
   sl.registerSingleton<IsLoggedInUseCase>(IsLoggedInUseCase());
 }

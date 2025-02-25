@@ -3,3 +3,7 @@ const keyPassword = 'password';
 const keyToken = 'token';
 const keyUser = 'user';
 const keyMessage= 'message';
+const keyName= 'name';
+const keyGender= 'gender';
+const keyBirthday ='birthday';
+const keyRole ='role';

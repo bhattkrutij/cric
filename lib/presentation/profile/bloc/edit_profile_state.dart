@@ -7,7 +7,10 @@ final class EditProfileInitial extends EditProfileState {}
 
 final class EditProfileLoading extends EditProfileState {}
 
-final class EditProfileSuccess extends EditProfileState {}
+final class EditProfileSuccess extends EditProfileState {
+ final String message;
+ EditProfileSuccess(this.message);
+}
 final class EditProfileValidationSuccess extends EditProfileState {}
 final class EditProfileFailure extends EditProfileState {
   final String errors;

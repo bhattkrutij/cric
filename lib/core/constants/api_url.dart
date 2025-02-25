@@ -5,4 +5,5 @@ class ApiUrl {
   
   static const signup = '${apiV}auth/signup';
   static const signin = '${apiV}auth/signin';
+  static const editProfile = '${apiV}auth/updateUser';
 }

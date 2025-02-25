@@ -1,4 +1,5 @@
 import 'package:cric/common/helper/keys.dart';
+import 'package:cric/data/auth/models/edit_profile_req_params.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 
@@ -16,6 +17,7 @@ abstract class AuthService {
 
 
   Future<ApiResponse> signIn(SignInReqParams params);
+   Future<ApiResponse> editProfile(EditProfileReqParams params);
 }
 
 
@@ -71,6 +73,24 @@ class AuthApiServiceImpl extends AuthService {
        print("---------catch------${e.response}----${e.response!.statusCode}");
        String errorMessage = e.response?.data?['message'] ?? 'Something went wrong';
        return ApiResponse.error(errorMessage);
+    }
+  }
+
+  @override
+  Future<ApiResponse> editProfile(EditProfileReqParams params) async {
+    try {
+
+      var response = await sl<DioClient>().post(
+          ApiUrl.editProfile,
+          data: params.toMap()
+      );
+      print("status code${response.statusCode}");
+      return ApiResponse.fromJson(response.data); // Extract `.data`
+
+    } on DioException catch(e) {
+      print("---------catch------${e.response}----${e.response!.statusCode}");
+      String errorMessage = e.response?.data?['message'] ?? 'Something went wrong';
+      return ApiResponse.error(errorMessage);
     }
   }
 
